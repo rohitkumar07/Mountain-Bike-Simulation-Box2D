@@ -5,9 +5,9 @@ CS296 PROJECT - GEARED BIKE
 
 Group No-18
 
-1.Rohit Kumar 120050028
-2.Suman Sourabh 120050031
-3.Nitin Chandrol 120050035
+1.Rohit Kumar 
+2.Suman Sourabh 
+3.Nitin Chandrol 
 
 ------------------------------------------------------------------------------------
 
