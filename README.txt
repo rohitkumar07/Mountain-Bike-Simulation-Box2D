@@ -3,11 +3,11 @@
 CS296 PROJECT - GEARED BIKE
 ------------------------------------------------------------------------------------ 
 
-Group No-18
+Contributors:
 
-1.Rohit Kumar 
-2.Suman Sourabh 
-3.Nitin Chandrol 
+Rohit Kumar 
+Suman Sourabh 
+Nitin Chandrol 
 
 ------------------------------------------------------------------------------------
 
