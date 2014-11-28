@@ -1,0 +1,34 @@
+--- external/src/Box2D/Box2D/Common/b2Timer.cpp	2014-01-28 18:12:09.255575637 +0530
++++ b2Timer.cpp	2014-01-28 18:07:32.030595375 +0530
+@@ -61,8 +61,6 @@
+ 
+ #elif defined(__linux__) || defined (__APPLE__)
+ 
+-#include <sys/time.h>
+-
+ b2Timer::b2Timer()
+ {
+     Reset();
+@@ -72,15 +70,18 @@
+ {
+     timeval t;
+     gettimeofday(&t, 0);
++    m_start=t;
+     m_start_sec = t.tv_sec;
+-    m_start_usec = t.tv_usec;
++    m_start_usec = t.tv_usec * 0.001f;
+ }
+ 
+ float32 b2Timer::GetMilliseconds() const
+ {
+-    timeval t;
+-    gettimeofday(&t, 0);
+-    return 1000.0f * (t.tv_sec - m_start_sec) + 0.001f * (t.tv_usec - m_start_usec);
++  timeval t, res;
++  gettimeofday(&t, 0);
++  timersub(&t, &m_start, &res);
++  return res.tv_sec*1000 + res.tv_usec * 0.001f;
++  //return 1000.0f * (t.tv_sec - m_start_sec) + 0.001f * (t.tv_usec - m_start_usec);
+ }
+ 
+ #else

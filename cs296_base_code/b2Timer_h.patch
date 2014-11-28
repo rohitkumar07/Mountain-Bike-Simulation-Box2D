@@ -1,0 +1,23 @@
+--- external/src/Box2D/Box2D/Common/b2Timer.h	2014-01-28 18:12:16.367575132 +0530
++++ b2Timer.h	2014-01-28 18:07:23.486595974 +0530
+@@ -20,6 +20,10 @@
+ #define B2_TIMER_H
+ 
+ #include <Box2D/Common/b2Settings.h>
++
++#if defined(__linux__) || defined (__APPLE__)
++#include <sys/time.h>
++#endif
+ 
+ /// Timer for profiling. This has platform specific code and may
+ /// not work on every platform.
+@@ -43,7 +47,8 @@
+ 	static float64 s_invFrequency;
+ #elif defined(__linux__) || defined (__APPLE__)
+ 	unsigned long m_start_sec;
+-	unsigned long m_start_usec;
++	unsigned long m_start_usec;
++	timeval m_start;
+ #endif
+ };
+ 
